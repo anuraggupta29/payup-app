@@ -5,7 +5,8 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 
-@Getter @Setter
+@Getter
+@Setter
 public class PersonalExpenseDto {
     private String username;
     private String expenseDescription;
@@ -14,7 +15,7 @@ public class PersonalExpenseDto {
 
     @Override
     public String toString() {
-        return "PersonalExpense{" +
+        return "{" +
                 "username=" + username +
                 ", expenseDescription='" + expenseDescription + '\'' +
                 ", expenseAmount=" + expenseAmount +

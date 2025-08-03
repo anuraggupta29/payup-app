@@ -45,7 +45,7 @@ public class PersonalExpense {
 
     @Override
     public String toString() {
-        return "PersonalExpense{" +
+        return "{" +
                 "id=" + id +
                 ", user=" + user +
                 ", description='" + description + '\'' +
