@@ -9,6 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.*;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
 @Controller // change to RestController and get data as JSON instead of form
 public class PersonalExpenseApiController {
 
@@ -34,4 +38,16 @@ public class PersonalExpenseApiController {
         }
         return ResponseEntity.badRequest().build();
     }
+
+    @GetMapping("/{userName}")
+    public ResponseEntity<String> handleGetExpenseByName(@PathVariable String userName){
+        if(!userRepository.findByUsername(userName).isPresent())
+            return ResponseEntity.badRequest().build();
+
+        Long id=userRepository.findByUsername(userName).get().getId();
+        System.out.println("hement is = "+id);
+        List<PersonalExpense> expenseList=personalExpenseRepository.findByUserId(id);
+        return ResponseEntity.ok(expenseList.toString());
+    }
+
 }
