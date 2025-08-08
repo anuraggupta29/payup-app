@@ -1,19 +1,14 @@
 package com.payup.payupapp.controller;// FormController.java
-import com.payup.payupapp.entity.PersonalExpense;
-import com.payup.payupapp.entity.User;
-import com.payup.payupapp.model.PersonalExpenseDto;
-import com.payup.payupapp.repository.PersonalExpenseRepository;
-import com.payup.payupapp.repository.UserRepository;
+import com.payup.payupapp.entity.*;
+import com.payup.payupapp.model.*;
+import com.payup.payupapp.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
-@Controller // change to RestController and get data as JSON instead of form
+@RestController // change to RestController and get data as JSON instead of form
 public class PersonalExpenseApiController {
 
     @Autowired
@@ -39,15 +34,13 @@ public class PersonalExpenseApiController {
         return ResponseEntity.badRequest().build();
     }
 
-    @GetMapping("/{userName}")
+    @GetMapping("/users/{userName}")
     public ResponseEntity<String> handleGetExpenseByName(@PathVariable String userName){
         if(!userRepository.findByUsername(userName).isPresent())
             return ResponseEntity.badRequest().build();
 
         Long id=userRepository.findByUsername(userName).get().getId();
-        System.out.println("hement is = "+id);
         List<PersonalExpense> expenseList=personalExpenseRepository.findByUserId(id);
         return ResponseEntity.ok(expenseList.toString());
     }
-
 }
