@@ -140,7 +140,7 @@ public class ExpenseApiController {
         return ResponseEntity.ok(responses);
     }
 
-    @GetMapping("getExpenses/{userName}")
+    @GetMapping("/getExpenses/{userName}")
     public ResponseEntity<String> handleGetExpensesPerUser(@PathVariable String userName){
         Map<String,Long> relations=new HashMap<>();
         Long userId=userRepository.findByUsername(userName).get().getId();
