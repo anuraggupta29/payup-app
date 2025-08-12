@@ -3,6 +3,7 @@ package com.payup.payupapp.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.util.Date;
 
@@ -10,6 +11,7 @@ import java.util.Date;
 @Table(name = "expense")
 @Getter
 @Setter
+@ToString
 public class Expense {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
