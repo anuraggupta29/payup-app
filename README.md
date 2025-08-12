@@ -199,4 +199,10 @@ GET /getExpenses/Hement Rawal
 
 ---
 
-**Author:** PayUp Dev Team
+## Authors
+
+- **Hement Rawal**  
+  [LinkedIn](https://www.linkedin.com/in/hement-rawal/) | [GitHub](https://github.com/hementrawal)
+
+- **Anurag Gupta**  
+  [LinkedIn](https://www.linkedin.com/in/anuraggupta29/) | [GitHub](https://github.com/anuraggupta29)
